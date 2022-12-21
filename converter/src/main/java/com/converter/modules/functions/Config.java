@@ -36,7 +36,7 @@ public class Config {
     //target location as read from the config file
     private String location;
     //the path where the config file is to be stored
-    private String path = "./.config/config.json";
+    private String path = "./.config/target.json";
     //json object for json file
     private JSONObject obj;
     //json parser
@@ -80,7 +80,7 @@ public class Config {
      * @param mdbpath   : mdb path
      * @param accdbpath : accdb path
      */
-    public void makeCfg(String tgpath, String mdbpath, String accdbpath) {
+    public void makeCfg() {
         
         //if the ".config" directory doesn't exist
         if (!newDir.exists()){
@@ -129,15 +129,28 @@ public class Config {
      */
     public String readCfg(String info) throws IOException, ParseException {
 
-        //catching exceptions is overrated
-        try(Reader reader = new FileReader(path)){
+        //checking the info param 
+        if(info == "target") {
+        
+            //catching exceptions is overrated
+            try(Reader reader = new FileReader(path)){
 
-            //json output read from config file
-            output = (JSONObject) parser.parse(reader);
-            //return the "target_path" value
-            return (String) (output.get("target_path"));
+                //json output read from config file
+                output = (JSONObject) parser.parse(reader);
+                //return the "target_path" value
+                return (String) (output.get("target_path"));
 
-        } 
+            } 
+        
+        } else if(info == "mdbpath" || info == "accdbpath") {
+        
+            return("Returning database paths");
+        
+        } else {
+
+            return("No such config file");
+        
+        }
 
         /*
 

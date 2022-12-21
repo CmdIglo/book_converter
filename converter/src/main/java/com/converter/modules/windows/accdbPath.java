@@ -7,9 +7,13 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
-import com.converter.modules.functions.Config;
-
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 /**
  * @author: Maxwell Leu
  * @version: 1.0.0
@@ -26,16 +30,12 @@ public class accdbPath extends JFrame{
     private JTextField userInput;
     //confirm the input
     private JButton confirmInput;
-    //Config class
-    private Config config;
 
     //Constructor
     public accdbPath(String title) {
 
         //inherit the properties of JFrame
         super(title);
-        //initializing config class
-        config = new Config();
         //initalizing the classes
         contentPanel = new JPanel();
         //making the textfield 20 characters long
@@ -51,7 +51,7 @@ public class accdbPath extends JFrame{
         //set the database path correctly
         confirmInput.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Set onix/ebook database path");
+                System.out.println("Set Author Database Path");
                 //get the user input
                 String path = userInput.getText();
                 System.out.println(path);
@@ -80,6 +80,7 @@ public class accdbPath extends JFrame{
     public void setPath(String path) {
 
         //add accDB path to config file
+
         System.out.println("Setting ACC Database");
 
     }

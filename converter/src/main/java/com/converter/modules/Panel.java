@@ -111,7 +111,8 @@ public class Panel extends JPanel {
 				
 					//open_origin();
 					System.out.println("Converting...");
-					System.out.println(config.readCfg());
+					//info set to "target", so we get the target string
+					System.out.println(config.readCfg("target"));
 				
 				} catch(IOException | ParseException f) {
 					

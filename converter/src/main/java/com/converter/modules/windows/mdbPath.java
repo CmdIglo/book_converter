@@ -51,7 +51,7 @@ public class mdbPath extends JFrame{
         //set the database path correctly
         confirmInput.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Set author database path");
+                System.out.println("Set ONIX database path");
                 //get the user input
                 String path = userInput.getText();
                 System.out.println(path);

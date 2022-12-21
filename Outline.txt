@@ -12,6 +12,9 @@
 TODO:	
 - add params to makecfg for multiple infos to be written to the config file
 -> work on implementation (as in where, how to set the infos)
+-> make multiple config files, one for target path and one for all database paths
+	-> set the database paths in an UI, and trash the dropdown dev menu, as this can be changed
+	   to a UI
 - Länge von ISBN in config festlegen
 - lenIsbn.action: Textfeld zur Eingabe von ISBN länge 
 -> Eigene Klasse, die getLength() implementiert.
@@ -32,9 +35,10 @@ public Int getLength() {
 
 
 
-
-
 DONE:
+- changed target path config file to "target.json"
+-> changed Config.readcfg() function; checks for needed info and returns value
+   based on what info is needed
 - config.txt -> config.json; so ist es einfacher mehrere
 Konfigurationen vorzunehmen
 - !! Change to maven project
