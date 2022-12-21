@@ -3,12 +3,16 @@ package com.converter.modules.functions;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Reader;
 import java.util.Scanner;
 
 //for writing and reading json
 import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 /**
@@ -27,16 +31,18 @@ public class Config {
     private File newDir;
     //config file (writing)
     private File cfgFile;
-    //config file (reading)
-    private File cfgFile2;
     //writer for the config file
     private PrintWriter writer;
-    //reader for the config file
-    private Scanner reader;
     //target location as read from the config file
     private String location;
     //the path where the config file is to be stored
-    private String path = "./.config/config.txt";
+    private String path = "./.config/config.json";
+    //json object for json file
+    private JSONObject obj;
+    //json parser
+    private JSONParser parser;
+    //json object as output
+    private JSONObject output;  
 
     //target location 
     public String targetLoc;
@@ -52,12 +58,17 @@ public class Config {
         newDir = new File("./.config");
         //config file
         cfgFile = new File(path);
+        //json object (input)
+        obj = new JSONObject();
+        //json parser
+        parser = new JSONParser();
 
     }
 
     //set the location path
     public void setPath(String locString) {
 
+        //target location
         this.location = locString;
     
     }
@@ -90,7 +101,10 @@ public class Config {
             //file-writer
             writer = new PrintWriter(cfgFile);
             //writes the location of the to-be-saved-files into the config file
-            writer.println(this.location); 
+            obj.put("target_path", this.location);
+            //writes the json data to the config file
+            writer.println(obj.toJSONString());
+            //close writer
             writer.close();
         
         } catch (FileNotFoundException f) {
@@ -100,7 +114,21 @@ public class Config {
     }
 
     //reads the config file
-    public String readCfg() throws FileNotFoundException {
+    public String readCfg() throws IOException, ParseException {
+
+        //catching exceptions is overrated
+        try(Reader reader = new FileReader(path)){
+
+            //json output read from config file
+            output = (JSONObject) parser.parse(reader);
+            //return the "target_path" value
+            return (String) (output.get("target_path"));
+
+        } 
+
+        /*
+
+        Old version (no json, plain text)
 
         //the file to be read
         cfgFile2 = new File(path);
@@ -110,6 +138,7 @@ public class Config {
         targetLoc = reader.nextLine();
         //return the save-file location
         return(targetLoc);
+         */
 
     }
 

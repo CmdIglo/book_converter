@@ -10,9 +10,8 @@
 
 
 TODO:	
+- add params to makecfg for multiple infos to be written to the config file
 - Länge von ISBN in config festlegen
-- config.txt -> config.json; so ist es einfacher mehrere
-Konfigurationen vorzunehmen
 - lenIsbn.action: Textfeld zur Eingabe von ISBN länge 
 -> Eigene Klasse, die getLength() implementiert.
 -> getLength() returns Int 
@@ -35,6 +34,8 @@ public Int getLength() {
 
 
 DONE:
+- config.txt -> config.json; so ist es einfacher mehrere
+Konfigurationen vorzunehmen
 - !! Change to maven project
 - add a Book Class or Interface for easier processing of info
 - dbPath in developer menu doesnt work, problem with "setvisible" in .show() Method

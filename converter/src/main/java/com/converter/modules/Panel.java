@@ -6,10 +6,13 @@ import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.border.LineBorder;
 
+import org.json.simple.parser.ParseException;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import com.converter.modules.ConvertBtn;
 import com.converter.modules.TargetFldrSlctr;
@@ -110,7 +113,7 @@ public class Panel extends JPanel {
 					System.out.println("Converting...");
 					System.out.println(config.readCfg());
 				
-				} catch(FileNotFoundException f) {
+				} catch(IOException | ParseException f) {
 					
 					System.out.println("No config file");
 					
