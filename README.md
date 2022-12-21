@@ -4,4 +4,4 @@ This is the maven project of the "book-converter" project
 
 :copyright: This Application is written for "Verlag Dr Kovac"
 
-![alt text](https://github.com/CmdIglo/book_converter/tree/main/converter/src/main/java/com/converter/static/logo.png?raw=true)
+![logo](https://github.com/CmdIglo/book_converter/tree/main/converter/src/main/java/com/converter/static/logo.png)
