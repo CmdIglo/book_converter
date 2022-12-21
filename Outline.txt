@@ -31,11 +31,11 @@ public Int getLength() {
   Reference to FIX in line 312 in Panel.java
 
 
-!! Change to maven project
 
 
 
 DONE:
+- !! Change to maven project
 - add a Book Class or Interface for easier processing of info
 - dbPath in developer menu doesnt work, problem with "setvisible" in .show() Method
 - Beim ersten Starten der Anwendung einen Config Ordner erstellen im Installationsverzeichnis des Programms
