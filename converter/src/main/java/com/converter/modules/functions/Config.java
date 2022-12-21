@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+//for writing and reading json
+import org.json.simple.*;
+
 
 /**
  * @author: Maxwell Leu
@@ -14,6 +17,7 @@ import java.util.Scanner;
  * 
  * The Config-Reader class 
  * Reads and writes Config file
+ * 
  */
 
 

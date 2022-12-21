@@ -1,0 +1,71 @@
+- Kurz-ISBNs werden angegeben 
+- Infos jeder ISBN werden aus Access Datenbank gefetched
+- XML file wird erstellt
+- Wenn E-Book da ist mit E-Book speichern
+- Wenn nicht, dann in einem anderen Ordner speichern (Ordner: E-Book, Kein E-Book)
+- Ordner wird erstellt mit folgender Struktur: 
+	- ISBN (Bezeichnung Ordner)
+		- content (Bezeichnung Unterordner)
+		- XML-File (Onyx-Meldung)
+
+
+TODO:	
+- Länge von ISBN in config festlegen
+- config.txt -> config.json; so ist es einfacher mehrere
+Konfigurationen vorzunehmen
+- lenIsbn.action: Textfeld zur Eingabe von ISBN länge 
+-> Eigene Klasse, die getLength() implementiert.
+-> getLength() returns Int 
+
+public Int getLength() {
+	return(isbnLen);
+}
+
+- UI for Database path 
+- UI for ISBN Length
+- action listener for confirm input button in setIsbnWin not working properly
+- alert window for "no config file" in action listener for convBtn in Panel.java
+- add component that shows the ISBNs selected in showIsbn in Panel.java
+- In setTgPath() in Panel.java: tgSclt.getSelectedFile.getAbsolutePath in If Clause
+  throws NullPointerException if the window is closed without a path being set
+  Reference to FIX in line 312 in Panel.java
+
+
+!! Change to maven project
+
+
+
+DONE:
+- add a Book Class or Interface for easier processing of info
+- dbPath in developer menu doesnt work, problem with "setvisible" in .show() Method
+- Beim ersten Starten der Anwendung einen Config Ordner erstellen im Installationsverzeichnis des Programms
+sodass zum Beispiel der Zeilordner in den Einstellungen des Programms festgelegt werden kann und nicht bei jedem
+Ausführen des Programms erneut festgelegt werden muss
+- So muss bei jedem Start der Anwendung nur das config-file mit den Einstellungen geladen werden und die Werte 
+dementsprechend zur Laufzeit ausgelesen und zugewiesen werden können 
+
+
+
+
+Für Book Class:
+
+- Anzahl Seiten 
+- Art der Arbeit
+- Band Nummer in Schriftenreihe
+- Breite
+- Druckerei
+- Erscheinungsdatum
+- Hochschulort
+- Hochschule
+- ID Eindeutig
+- ISBN10
+- ISBN13
+- Jahr der Prüfung
+- Preis 
+- Schlagworte
+- Schriftenreihe
+- Titelnummer
+- Titel 
+- Uni 
+- Verfasser/Herausgeber
+- Zielgruppe
