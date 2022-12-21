@@ -122,7 +122,7 @@ public class Config {
     /**
      * reads the config file
      * 
-     * @param info              : requested info 
+     * @param info              : what info is requested 
      * @return                  : info that's been requested
      * @throws IOException
      * @throws ParseException
