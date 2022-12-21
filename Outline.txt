@@ -11,6 +11,7 @@
 
 TODO:	
 - add params to makecfg for multiple infos to be written to the config file
+-> work on implementation (as in where, how to set the infos)
 - Länge von ISBN in config festlegen
 - lenIsbn.action: Textfeld zur Eingabe von ISBN länge 
 -> Eigene Klasse, die getLength() implementiert.

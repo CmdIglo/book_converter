@@ -73,8 +73,14 @@ public class Config {
     
     }
 
-    //makes a new config file to save the target location
-    public void makeCfg() {
+    /**
+     * makes a new config file to save the target location
+     * 
+     * @param tgpath    : target folder path
+     * @param mdbpath   : mdb path
+     * @param accdbpath : accdb path
+     */
+    public void makeCfg(String tgpath, String mdbpath, String accdbpath) {
         
         //if the ".config" directory doesn't exist
         if (!newDir.exists()){
@@ -113,8 +119,15 @@ public class Config {
         }
     }
 
-    //reads the config file
-    public String readCfg() throws IOException, ParseException {
+    /**
+     * reads the config file
+     * 
+     * @param info              : requested info 
+     * @return                  : info that's been requested
+     * @throws IOException
+     * @throws ParseException
+     */
+    public String readCfg(String info) throws IOException, ParseException {
 
         //catching exceptions is overrated
         try(Reader reader = new FileReader(path)){
