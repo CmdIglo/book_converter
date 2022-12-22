@@ -56,6 +56,9 @@ public class Window {
 	private setIsbnWin isbnWin;
 	private mdbPath databasePath;
 	private accdbPath accDbPath;
+
+	//development
+	private JMenuItem dbpaths;
 	
 	//content panel
 	private Panel pane;
@@ -111,6 +114,8 @@ public class Window {
 		databasePath = new mdbPath("Set Author database path");
 		accDbPath = new accdbPath("Set onix/ebook database path");
 
+		dbpaths = new JMenuItem("Set Database paths");
+
 
 		debug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -145,10 +150,17 @@ public class Window {
 			}
 		});
 
+		dbpaths.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pane.setDbPaths();
+			}
+		});
+
 		//submenu
 		devmenu.add(databPath);
 		devmenu.add(accdb);
 		devmenu.add(lenIsbn);
+		devmenu.add(dbpaths);
 		
 		//menu
 		menu.add(debug);

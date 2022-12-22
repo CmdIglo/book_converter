@@ -60,6 +60,8 @@ public class Panel extends JPanel {
 	// value isnt used, but gets set
 	private String target_path;
 	//database path
+	//isnt used anywhere
+	//invalid, as there are multiple databases
 	public String db_path;
 	
 	// Constructor
@@ -323,6 +325,15 @@ public class Panel extends JPanel {
 			//make the config file or change it
 			config.makeCfg();
 		}
+
+	}
+
+	public void setDbPaths() {
+
+		//show open_target context
+		open_target();
+
+		//implement the database UI
 
 	}
 	

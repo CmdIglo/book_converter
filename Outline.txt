@@ -24,7 +24,7 @@ public Int getLength() {
 	return(isbnLen);
 }
 
-- UI for Database path 
+- UI for Database paths (modules.Panel -> setDbpaths())
 - UI for ISBN Length
 - action listener for confirm input button in setIsbnWin not working properly
 - alert window for "no config file" in action listener for convBtn in Panel.java
