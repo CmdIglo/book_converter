@@ -151,6 +151,8 @@ public class Window {
 		});
 
 		//TODO: watch out for placeholder, change to real param
+		//TODO: remove dbpaths and add the pane.setDbPaths() function to 
+		//		db paths menu items in devmenu
 		dbpaths.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pane.setDbPaths("placeholder");
