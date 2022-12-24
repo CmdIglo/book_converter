@@ -34,11 +34,11 @@ public class Config {
     //writer for the config file
     private PrintWriter writer;
     //target location as read from the config file
-    private String tglocation;
+    private String tglocation = null;     //setting standard values to 'null', so that no errors turn up      
     //ONIX database path
-    private String mdblocation;
+    private String mdblocation = null;    //-"-
     //author database path
-    private String accdblocation;
+    private String accdblocation = null;  //-"-
     //the path where the config file with target location path is stored
     private String path = "./.config/target.json";
     //the path where the config file with mdb location path is stored
@@ -108,7 +108,7 @@ public class Config {
     public void makeCfg(String path) {
         
         //if the path param is "target"
-        if(path == "target") {
+        if(path == "target" && this.tglocation != null) {
             //if the ".config" directory doesn't exist
             if (!newDir.exists()){
                 //make the new directory
@@ -143,6 +143,17 @@ public class Config {
             } catch (FileNotFoundException f) {
                 //lets REALLY hope this doesnt happen
                 f.printStackTrace();
+            }
+        } else {
+            //checks which database path is being set
+            if(path == "mdb" && this.mdblocation != null) {
+                
+                System.out.println("Database paths feature not implemented yet");
+            
+            } else if(path == "accdb" && this.accdblocation != null) {
+            
+                System.out.println("Database paths feature not implemented yet");
+            
             }
         }
     }

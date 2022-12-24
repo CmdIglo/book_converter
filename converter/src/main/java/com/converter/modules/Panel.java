@@ -329,13 +329,30 @@ public class Panel extends JPanel {
 	}
 
 	//does basically the same as 'setTgPath()' but for DBs 
-	public void setDbPaths() {
+	public void setDbPaths(String db) {
 
 		//show open_target context
 		open_target();
 
 		//implement the database UI
 		//-> inspiration from setTgPath()
+		if(tgSlct.getSelectedFile().getAbsolutePath() != null) {
+			//check db param to find out, which db path is being set
+			if(db == "mdb") {
+				//set mdb path
+				mdb_path = tgSlct.getSelectedFile().getAbsolutePath();
+				config.setMdbPath(mdb_path);
+				config.makeCfg("mdb");
+			} else if(db == "accdb") {
+				//set accdb path
+				accdb_path = tgSlct.getSelectedFile().getAbsolutePath();
+				config.setAccdbPath(accdb_path);
+				config.makeCfg("accdb");
+			} else {
+				//no valid db name given 
+				System.out.println("error, unknown 'db'");
+			}
+		}
 
 	}
 	

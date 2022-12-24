@@ -150,9 +150,10 @@ public class Window {
 			}
 		});
 
+		//TODO: watch out for placeholder, change to real param
 		dbpaths.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pane.setDbPaths();
+				pane.setDbPaths("placeholder");
 			}
 		});
 
