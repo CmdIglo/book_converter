@@ -278,7 +278,7 @@ public class Panel extends JPanel {
 	}
 	
 	//displays a window
-	public void show(JFrame win) {
+	public void show(JFrame win) { 
 		
 		//shows the window
 		win.setVisible(true);
@@ -321,7 +321,7 @@ public class Panel extends JPanel {
 			//target_path is the selected directory
 			target_path = tgSlct.getSelectedFile().getAbsolutePath();
 			//sets the target location in the config file
-			config.setPath(target_path);
+			config.setTgPath(target_path);
 			//make the config file or change it
 			config.makeCfg();
 		}

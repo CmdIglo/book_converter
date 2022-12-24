@@ -34,9 +34,17 @@ public class Config {
     //writer for the config file
     private PrintWriter writer;
     //target location as read from the config file
-    private String location;
-    //the path where the config file is to be stored
+    private String tglocation;
+    //ONIX database path
+    private String mdblocation;
+    //author database path
+    private String accdblocation;
+    //the path where the config file with target location path is stored
     private String path = "./.config/target.json";
+    //the path where the config file with mdb location path is stored
+    private String mcPath = "./.config/mdb.json";
+    //the path where the config file with accdb location path is stored
+    private String acPath = "./.config/accdb.json";
     //json object for json file
     private JSONObject obj;
     //json parser
@@ -56,6 +64,7 @@ public class Config {
 
         //./config directory
         newDir = new File("./.config");
+        //TODO: construct new File based on the info that needs to be stored -> add params somewhere
         //config file
         cfgFile = new File(path);
         //json object (input)
@@ -65,16 +74,34 @@ public class Config {
 
     }
 
-    //set the location path
-    public void setPath(String locString) {
+    //set the target location path
+    public void setTgPath(String locString) {
 
         //target location
-        this.location = locString;
+        this.tglocation = locString;
     
+    }
+
+    //set the ONIX database location path
+    public void setMdbPath(String locString) {
+
+        //ONIX db location
+        this.mdblocation = locString;
+
+    }
+
+    //set the author db location path
+    public void setAccdbPath(String locString) {
+
+        //set the author db path
+        this.accdblocation = locString;
+
     }
 
     /**
      * makes a new config file to save the target location
+     * TODO: add param to set the info that should be stored -> so based on what path should be set, the 
+     *       function makes a new directory and file with the corresponding name and value
      * 
      * @param tgpath    : target folder path
      * @param mdbpath   : mdb path
@@ -107,7 +134,7 @@ public class Config {
             //file-writer
             writer = new PrintWriter(cfgFile);
             //writes the location of the to-be-saved-files into the config file
-            obj.put("target_path", this.location);
+            obj.put("target_path", this.tglocation);
             //writes the json data to the config file
             writer.println(obj.toJSONString());
             //close writer

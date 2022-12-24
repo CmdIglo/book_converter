@@ -32,6 +32,9 @@ public Int getLength() {
 - In setTgPath() in Panel.java: tgSclt.getSelectedFile.getAbsolutePath in If Clause
   throws NullPointerException if the window is closed without a path being set
   Reference to FIX in line 312 in Panel.java
+- add params to 'makeCfg()' in Config.java -> see TODO at function
+- implement/add the directory location functions in Config.java to the corresponding
+  elements in Window.java and add UIs 
 
 
 
