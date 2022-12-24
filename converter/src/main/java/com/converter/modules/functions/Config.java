@@ -103,46 +103,47 @@ public class Config {
      * TODO: add param to set the info that should be stored -> so based on what path should be set, the 
      *       function makes a new directory and file with the corresponding name and value
      * 
-     * @param tgpath    : target folder path
-     * @param mdbpath   : mdb path
-     * @param accdbpath : accdb path
+     * @param path : determines, which path is being set, and makes config file based on its value
      */
-    public void makeCfg() {
+    public void makeCfg(String path) {
         
-        //if the ".config" directory doesn't exist
-        if (!newDir.exists()){
-            //make the new directory
-            newDir.mkdirs();
+        //if the path param is "target"
+        if(path == "target") {
+            //if the ".config" directory doesn't exist
+            if (!newDir.exists()){
+                //make the new directory
+                newDir.mkdirs();
 
-        } 
-        
-        //if the config file doesn't exist
-        if(!cfgFile.exists()) {
+            } 
+
+            //if the config file doesn't exist
+            if(!cfgFile.exists()) {
+
+                try {
+                    //creates new config file
+                    cfgFile.createNewFile();
+                } catch(IOException e) {
+                    //lets hope this doesnt happen
+                    e.printStackTrace();
+                }
             
-            try {
-                //creates new config file
-                cfgFile.createNewFile();
-            } catch(IOException e) {
-                //lets hope this doesnt happen
-                e.printStackTrace();
             }
-        
-        }
-        
-        try {
+
+            try {
+
+                //file-writer
+                writer = new PrintWriter(cfgFile);
+                //writes the location of the to-be-saved-files into the config file
+                obj.put("target_path", this.tglocation);
+                //writes the json data to the config file
+                writer.println(obj.toJSONString());
+                //close writer
+                writer.close();
             
-            //file-writer
-            writer = new PrintWriter(cfgFile);
-            //writes the location of the to-be-saved-files into the config file
-            obj.put("target_path", this.tglocation);
-            //writes the json data to the config file
-            writer.println(obj.toJSONString());
-            //close writer
-            writer.close();
-        
-        } catch (FileNotFoundException f) {
-            //lets REALLY hope this doesnt happen
-            f.printStackTrace();
+            } catch (FileNotFoundException f) {
+                //lets REALLY hope this doesnt happen
+                f.printStackTrace();
+            }
         }
     }
 

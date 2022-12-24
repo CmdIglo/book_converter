@@ -59,10 +59,10 @@ public class Panel extends JPanel {
 	private String isbn;
 	// value isnt used, but gets set
 	private String target_path;
-	//database path
-	//isnt used anywhere
-	//invalid, as there are multiple databases
-	public String db_path;
+	//ONIX database path
+	public String mdb_path;
+	//author database path
+	public String accdb_path;
 	
 	// Constructor
 	public Panel() {
@@ -323,17 +323,19 @@ public class Panel extends JPanel {
 			//sets the target location in the config file
 			config.setTgPath(target_path);
 			//make the config file or change it
-			config.makeCfg();
+			config.makeCfg("target");
 		}
 
 	}
 
+	//does basically the same as 'setTgPath()' but for DBs 
 	public void setDbPaths() {
 
 		//show open_target context
 		open_target();
 
 		//implement the database UI
+		//-> inspiration from setTgPath()
 
 	}
 	
