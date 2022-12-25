@@ -265,7 +265,25 @@ public class Config {
         
         } else if(info == "mdbpath" || info == "accdbpath") {
         
-            return("Returning database paths");
+            String fPath = "";
+            String cKey = "";
+            if(info == "mdbpath") {
+                fPath = mcPath;
+                cKey = "mdb_path";
+            } else if(info == "accdbpath") {
+                fPath = acPath;
+                cKey = "accdb_path";
+            } else {
+                //TODO: check in function call, if "0" is returned
+                return("0");
+            }
+
+            try(Reader reader = new FileReader(fPath)) {
+
+                output = (JSONObject) parser.parse(reader);
+
+                return (String) (output.get(cKey));
+            }
         
         } else {
 

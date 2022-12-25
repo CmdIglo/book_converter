@@ -115,7 +115,14 @@ public class Panel extends JPanel {
 					System.out.println("Converting...");
 					//info set to "target", so we get the target string
 					System.out.println(config.readCfg("target"));
-				
+
+					//other config.readCfg calls only for development
+					//for production add instruction to check if the return value is
+					//"0", which is the case, if the function call isn't performed correctly
+					//this is the time for a warning pop-up to be implemented
+					System.out.println(config.readCfg("mdbpath"));
+					System.out.println(config.readCfg("accdbpath"));
+
 				} catch(IOException | ParseException f) {
 					
 					System.out.println("No config file");

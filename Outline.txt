@@ -36,7 +36,8 @@ public Int getLength() {
   elements in Window.java and add UIs 
   -> see next TODO
 - add setDbPaths() function to elements in devmenu in Window.java
-
+- check in Config.readCfg() function call, if "0" is returned -> see TODO in script
+- add warning popup, see above TODO
 
 
 DONE:
