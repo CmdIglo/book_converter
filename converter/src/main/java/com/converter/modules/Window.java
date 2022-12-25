@@ -163,7 +163,7 @@ public class Window {
 	
 	}
 
-	//?
+	//? seems to be never used
 	public String dbString() {
 		return(dbstr);
 	}
