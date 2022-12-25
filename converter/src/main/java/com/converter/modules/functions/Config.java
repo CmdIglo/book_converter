@@ -144,6 +144,7 @@ public class Config {
                 obj.put("target_path", this.tglocation);
                 //writes the json data to the config file
                 writer.println(obj.toJSONString());
+                obj.clear();
                 //close writer
                 writer.close();
             
@@ -185,6 +186,7 @@ public class Config {
                     obj.put("mdb_path", this.mdblocation);
                     //writes the json data to the config file
                     writer.println(obj.toJSONString());
+                    obj.clear();
                     //close writer
                     writer.close();
                 
@@ -192,8 +194,6 @@ public class Config {
                     //lets REALLY hope this doesnt happen
                     f.printStackTrace();
                 }    
-
-                System.out.println("Database paths feature not implemented yet");
             
             } else if(path == "accdb" && this.accdblocation != null) {
             
@@ -225,6 +225,7 @@ public class Config {
                     obj.put("accdb_path", this.accdblocation);
                     //writes the json data to the config file
                     writer.println(obj.toJSONString());
+                    obj.clear();
                     //close writer
                     writer.close();
                 
@@ -232,11 +233,11 @@ public class Config {
                     //lets REALLY hope this doesnt happen
                     f.printStackTrace();
                 }    
-
-                System.out.println("Database paths feature not implemented yet");
             
             }
+        
         }
+    
     }
 
     /**
