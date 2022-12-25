@@ -31,6 +31,10 @@ public class Config {
     private File newDir;
     //config file (writing)
     private File cfgFile;
+    //config file for access database
+    private File acFile;
+    //config file for othre database
+    private File mFile;
     //writer for the config file
     private PrintWriter writer;
     //target location as read from the config file
@@ -67,6 +71,9 @@ public class Config {
         //TODO: construct new File based on the info that needs to be stored -> add params somewhere
         //config file
         cfgFile = new File(path);
+        //other config files
+        acFile = new File(acPath);
+        mFile = new File(mcPath);
         //json object (input)
         obj = new JSONObject();
         //json parser
@@ -144,14 +151,88 @@ public class Config {
                 //lets REALLY hope this doesnt happen
                 f.printStackTrace();
             }
+
         } else {
+
             //checks which database path is being set
             if(path == "mdb" && this.mdblocation != null) {
                 
+                //if the ".config" directory doesn't exist
+                if (!newDir.exists()){
+                    //make the new directory
+                    newDir.mkdirs();
+
+                } 
+
+                //if the mdb config file doesn't exist
+                if(!mFile.exists()) {
+
+                    try {
+                        //creates new config file
+                        mFile.createNewFile();
+                    } catch(IOException e) {
+                        //lets hope this doesnt happen
+                        e.printStackTrace();
+                    }
+                
+                }
+
+                try {
+
+                    //file-writer
+                    writer = new PrintWriter(mFile);
+                    //writes the location of the to-be-saved-files into the config file
+                    obj.put("mdb_path", this.mdblocation);
+                    //writes the json data to the config file
+                    writer.println(obj.toJSONString());
+                    //close writer
+                    writer.close();
+                
+                } catch (FileNotFoundException f) {
+                    //lets REALLY hope this doesnt happen
+                    f.printStackTrace();
+                }    
+
                 System.out.println("Database paths feature not implemented yet");
             
             } else if(path == "accdb" && this.accdblocation != null) {
             
+                //if the ".config" directory doesn't exist
+                if (!newDir.exists()){
+                    //make the new directory
+                    newDir.mkdirs();
+
+                } 
+
+                //if the acc db config file doesn't exist
+                if(!acFile.exists()) {
+
+                    try {
+                        //creates new config file
+                        acFile.createNewFile();
+                    } catch(IOException e) {
+                        //lets hope this doesnt happen
+                        e.printStackTrace();
+                    }
+                
+                }
+
+                try {
+
+                    //file-writer
+                    writer = new PrintWriter(acFile);
+                    //writes the location of the to-be-saved-files into the config file
+                    obj.put("accdb_path", this.accdblocation);
+                    //writes the json data to the config file
+                    writer.println(obj.toJSONString());
+                    //close writer
+                    writer.close();
+                
+                } catch (FileNotFoundException f) {
+                    //lets REALLY hope this doesnt happen
+                    f.printStackTrace();
+                }    
+
                 System.out.println("Database paths feature not implemented yet");
             
             }

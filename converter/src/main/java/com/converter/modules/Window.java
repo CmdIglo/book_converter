@@ -56,9 +56,6 @@ public class Window {
 	private setIsbnWin isbnWin;
 	private mdbPath databasePath;
 	private accdbPath accDbPath;
-
-	//development
-	private JMenuItem dbpaths;
 	
 	//content panel
 	private Panel pane;
@@ -112,9 +109,6 @@ public class Window {
 		accdb = new JMenuItem("Set info database path");
 		isbnWin = new setIsbnWin("Set length of ISBN");
 		databasePath = new mdbPath("Set Author database path");
-		accDbPath = new accdbPath("Set onix/ebook database path");
-
-		dbpaths = new JMenuItem("Set Database paths");
 
 
 		debug.addActionListener(new ActionListener() {
@@ -131,15 +125,15 @@ public class Window {
 
 		databPath.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				databasePath.showWin();
-				System.out.println("Setting Database path");
+				pane.setDbPaths("mdb");
+				System.out.println("Setting author database path");
 			}
 		});
 
 		accdb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				accDbPath.showWin();
-				System.out.println("Setting author database path");
+				pane.setDbPaths("accdb");
+				System.out.println("Setting info database path");
 			}
 		});
 
@@ -150,20 +144,10 @@ public class Window {
 			}
 		});
 
-		//TODO: watch out for placeholder, change to real param
-		//TODO: remove dbpaths and add the pane.setDbPaths() function to 
-		//		db paths menu items in devmenu
-		dbpaths.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pane.setDbPaths("placeholder");
-			}
-		});
-
 		//submenu
 		devmenu.add(databPath);
 		devmenu.add(accdb);
 		devmenu.add(lenIsbn);
-		devmenu.add(dbpaths);
 		
 		//menu
 		menu.add(debug);
@@ -179,6 +163,7 @@ public class Window {
 	
 	}
 
+	//?
 	public String dbString() {
 		return(dbstr);
 	}

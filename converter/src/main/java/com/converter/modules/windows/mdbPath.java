@@ -29,6 +29,8 @@ public class mdbPath extends JFrame{
     //Config class for writing to config file
     private Config config;
 
+    public String path = null;
+
     //Constructor
     public mdbPath(String title) {
 
@@ -53,7 +55,7 @@ public class mdbPath extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Set ONIX database path");
                 //get the user input
-                String path = userInput.getText();
+                path = userInput.getText();
                 System.out.println(path);
                 userInput.setText("");
                 setPath("Test String");
