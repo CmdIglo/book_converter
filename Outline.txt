@@ -27,7 +27,6 @@ public Int getLength() {
 - UI for Database paths (modules.Panel -> setDbpaths())
 - UI for ISBN Length
 - action listener for confirm input button in setIsbnWin not working properly
-- alert window for "no config file" in action listener for convBtn in Panel.java
 - add component that shows the ISBNs selected in showIsbn in Panel.java
 - In setTgPath() in Panel.java: tgSclt.getSelectedFile.getAbsolutePath in If Clause
   throws NullPointerException if the window is closed without a path being set
@@ -38,6 +37,9 @@ public Int getLength() {
 - add setDbPaths() function to elements in devmenu in Window.java
 - check in Config.readCfg() function call, if "0" is returned -> see TODO in script
 - add warning popup, see above TODO
+
+IN PROGRESS:
+- alert window for "no config file" in action listener for convBtn in Panel.java
 
 
 DONE:
