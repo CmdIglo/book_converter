@@ -275,6 +275,8 @@ public class Config {
                 cKey = "accdb_path";
             } else {
                 //TODO: check in function call, if "0" is returned
+                //only necessary if the variable passed into this function is dynamic
+                //for now, the values passed into this function are only static ones
                 return("0");
             }
 

@@ -25,7 +25,7 @@ public class ConvertBtn extends JButton {
 	//Constructor
 	public ConvertBtn() {
 		
-		this.setText("Drück mich");
+		this.setText("Konvertieren");
 		
 	}
 

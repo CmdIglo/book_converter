@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
 import javax.swing.border.LineBorder;
+import javax.swing.JOptionPane;
 
 import org.json.simple.parser.ParseException;
 
@@ -64,6 +65,11 @@ public class Panel extends JPanel {
 	public String mdb_path;
 	//author database path
 	public String accdb_path;
+
+	//for error handling in the convBtn conversion function
+	private String target_conv    = "";
+	private String mdbPath_conv   = "";
+	private String accdbPath_conv = "";
 	
 	// Constructor
 	public Panel() {
@@ -114,19 +120,45 @@ public class Panel extends JPanel {
 				
 					//open_origin();
 					System.out.println("Converting...");
+
+					//updating the variables 
+					target_conv = config.readCfg("target");
+					mdbPath_conv = config.readCfg("mdbpath");
+					accdbPath_conv = config.readCfg("accdbpath");
+
 					//info set to "target", so we get the target string
-					System.out.println(config.readCfg("target"));
+					System.out.println(target_conv);
 
 					//other config.readCfg calls only for development
 					//for production add instruction to check if the return value is
 					//"0", which is the case, if the function call isn't performed correctly
 					//this is the time for a warning pop-up to be implemented
-					System.out.println(config.readCfg("mdbpath"));
-					System.out.println(config.readCfg("accdbpath"));
+					System.out.println(mdbPath_conv);
+					System.out.println(accdbPath_conv);
 
 				} catch(IOException | ParseException f) {
-					
-					System.out.println("No config file");
+
+					//check what went wrong
+					if(target_conv == "") {  //no target folder path set
+						
+						JOptionPane.showMessageDialog(convBtn, "Target path not properly configured");
+						System.out.println("No config file");
+
+					} else if(mdbPath_conv == "") {  //no author database path set
+						
+						JOptionPane.showMessageDialog(convBtn, "Author Database path not properly configured");
+						System.out.println("No config file");
+
+					} else if(accdbPath_conv == "") {  //no info database path set
+						
+						JOptionPane.showMessageDialog(convBtn, "Info Database path not properly configured");
+						System.out.println("No config file");
+
+					} else {  //something else went wrong
+						
+						JOptionPane.showMessageDialog(convBtn, "Something went wrong, try again");
+
+					}
 					
 				}
 
