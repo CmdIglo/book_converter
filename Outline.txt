@@ -10,11 +10,6 @@
 
 
 TODO:	
-- add params to makecfg for multiple infos to be written to the config file
--> work on implementation (as in where, how to set the infos)
--> make multiple config files, one for target path and one for all database paths
-	-> set the database paths in an UI, and trash the dropdown dev menu, as this can be changed
-	   to a UI
 - Länge von ISBN in config festlegen
 - lenIsbn.action: Textfeld zur Eingabe von ISBN länge 
 -> Eigene Klasse, die getLength() implementiert.
@@ -35,14 +30,23 @@ public Int getLength() {
   elements in Window.java and add UIs 
   -> see next TODO
 - add setDbPaths() function to elements in devmenu in Window.java
-- check in Config.readCfg() function call, if "0" is returned -> see TODO in script
-- add warning popup, see above TODO
 
-IN PROGRESS:
-- alert window for "no config file" in action listener for convBtn in Panel.java
+IN PROGRESS (priority high to low):
+
+	- add params to makecfg for multiple infos to be written to the config file
+	-> work on implementation (as in where, how to set the infos)
+	-> make multiple config files, one for target path and one for all database paths
+->		-> set the database paths in an UI, and trash the dropdown dev menu, as this can be changed
+		   to a UI
+		   
+	- check in Config.readCfg() function call, if "0" is returned -> see TODO in script
+	  -> needs to be implemented, when the variable passed into the readCfg() function is a dynamic variable
+	  -> for now, no action needs to be taken
 
 
 DONE:
+- add warning popup, see below TODO
+- alert window for "no config file" in action listener for convBtn in Panel.java
 - add params to 'makeCfg()' in Config.java -> see TODO at function
 - changed target path config file to "target.json"
 -> changed Config.readcfg() function; checks for needed info and returns value
