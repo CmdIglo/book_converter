@@ -30,15 +30,19 @@ public Int getLength() {
   elements in Window.java and add UIs 
   -> see next TODO
 - add setDbPaths() function to elements in devmenu in Window.java
+- add a window, that appears after "Konvertieren"-button is clicked, that asks if all info is correct
+
 
 IN PROGRESS (priority high to low):
 
+->	- implement a way to connect to mc access databases
 	- add params to makecfg for multiple infos to be written to the config file
 	-> work on implementation (as in where, how to set the infos)
 	-> make multiple config files, one for target path and one for all database paths
-->		-> set the database paths in an UI, and trash the dropdown dev menu, as this can be changed
+		-> set the database paths in an UI, and trash the dropdown dev menu, as this can be changed
 		   to a UI
-		   
+
+NOT IMPORTANT ATM:		   
 	- check in Config.readCfg() function call, if "0" is returned -> see TODO in script
 	  -> needs to be implemented, when the variable passed into the readCfg() function is a dynamic variable
 	  -> for now, no action needs to be taken
@@ -67,23 +71,27 @@ dementsprechend zur Laufzeit ausgelesen und zugewiesen werden können
 
 Für Book Class:
 
-- Anzahl Seiten 
-- Art der Arbeit
-- Band Nummer in Schriftenreihe
-- Breite
-- Druckerei
+notwendige Felder:
+- Buchtitel
+- OnixThesisTypeCode
+- OnixThesisPresentedTo
+- OnixYearOfThesis
+- mindestens ein Eintrag für Autor, Herausgeber o.a.
+- mindestens ein Eintrag für Sprachen
+- Produktform
+- Warengruppe
 - Erscheinungsdatum
-- Hochschulort
-- Hochschule
-- ID Eindeutig
-- ISBN10
-- ISBN13
-- Jahr der Prüfung
-- Preis 
-- Schlagworte
-- Schriftenreihe
-- Titelnummer
-- Titel 
-- Uni 
-- Verfasser/Herausgeber
-- Zielgruppe
+- Preis
+
+
+ONIX header:
+
+<?xml version = ""1.0"" encoding = ""UTF-8""?>
+<!DOCTYPE ONIXmessage SYSTEM ""https://www.editeur.org/onix/2.1/short/onix-international.dtd"">
+<ONIXmessage  release=""2.1"">
+<header>
+	<m174>Verlag Dr. Kovac</m174>
+	<m175>censored</m175>
+	<m283>info@verlagdrkovac.de</m283>
+	<m182>ONIX creation date</m182>
+</header>

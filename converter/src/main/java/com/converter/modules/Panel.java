@@ -374,7 +374,7 @@ public class Panel extends JPanel {
 		//show open_target context
 		open_target();
 
-		//implement the database UI
+		//implements the database UI
 		//-> inspiration from setTgPath()
 		if(tgSlct.getSelectedFile().getAbsolutePath() != null) {
 			//check db param to find out, which db path is being set

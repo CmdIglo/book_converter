@@ -16,6 +16,7 @@ import com.converter.modules.TargetFldrSlctr;
 import com.converter.modules.Panel;
 import com.converter.modules.windows.accdbPath;
 import com.converter.modules.windows.mdbPath;
+import com.converter.modules.windows.setPathsWin;
 
 /**
  * 
@@ -56,6 +57,7 @@ public class Window {
 	private setIsbnWin isbnWin;
 	private mdbPath databasePath;
 	private accdbPath accDbPath;
+	private setPathsWin pathWin;
 	
 	//content panel
 	private Panel pane;
@@ -110,19 +112,23 @@ public class Window {
 		isbnWin = new setIsbnWin("Set length of ISBN");
 		databasePath = new mdbPath("Set Author database path");
 
-
+		//action listener for debug button
 		debug.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pane.debug();
 			}
 		});
 
+		//action listener for saving location configuration button
 		config.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pane.setTgPath();
+				//testing
+				//pathWin = new setPathsWin();
 			}
 		});
 
+		//action listener for author database path configuration button
 		databPath.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pane.setDbPaths("mdb");
@@ -130,6 +136,7 @@ public class Window {
 			}
 		});
 
+		//action listener for info database path configuration button
 		accdb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pane.setDbPaths("accdb");
@@ -137,6 +144,7 @@ public class Window {
 			}
 		});
 
+		//action listener for length of isbn configuration button
 		lenIsbn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				isbnWin.showWin();
